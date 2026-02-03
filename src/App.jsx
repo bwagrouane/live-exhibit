@@ -2,7 +2,7 @@
 
 function App() {
   return (
-      <div className="bg-amber-600 min-h-screen">
+      <div className={"backdrop-blur-md h-screen  w-3/4 bg-pink-300/15 border border-white/20  mx-auto"} >
 
       </div>
   )
