@@ -1,4 +1,4 @@
-import MasonryGrid from "./assets/MasonryGrid.jsx";
+import MasonryGrid from "./MasonryGrid.jsx";
 
 function App() {
   return (
