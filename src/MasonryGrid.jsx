@@ -1,4 +1,4 @@
-
+import PopupBox from "./PopupBox.jsx";
 import ImgDisplay from "./ImgDisplay.jsx";
 function MasonryGrid() {
 
@@ -15,6 +15,8 @@ function MasonryGrid() {
             <ImgDisplay/>
             <ImgDisplay/>
             <ImgDisplay/>
+            <PopupBox/>
+
         </div>
     )
 }
