@@ -8,8 +8,12 @@ function MasonryGrid() {
    const [selectedImg, setSelectedImg] = useState(null);
 
    const activatePopup = () => {
-       console.log("holyshizballz");
        setIsOpen(true);
+       setSelectedImg(null);
+   }
+
+   const deactivatePopup = () => {
+       setIsOpen(false);
        setSelectedImg(null);
    }
 
@@ -23,7 +27,7 @@ function MasonryGrid() {
             <ImgDisplay activatePopup={activatePopup}/>
             <ImgDisplay activatePopup={activatePopup}/>
             <ImgDisplay activatePopup={activatePopup}/>
-            <PopupBox isOpen={isOpen} />
+            <PopupBox isOpen={isOpen} deactivatePopup={deactivatePopup} />
 
         </div>
     )

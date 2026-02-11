@@ -8,6 +8,9 @@ function App() {
               <p className={"text-xl text-center font-mono text-gray-200 "}>Made by Bilal Agrouane</p>
           </div>
 
+          <div className={" mt-6 w-10 h-10  shadow-2xl/10  rounded-2xl mx-auto flex justify-center flex-col items-center border border-white/20"} >
+          Yo
+          </div>
           <MasonryGrid />
       </div>
   )
