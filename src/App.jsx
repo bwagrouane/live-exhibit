@@ -3,13 +3,19 @@ import MasonryGrid from "./MasonryGrid.jsx";
 function App() {
   return (
       <div className={"backdrop-blur-md h-screen bg-pink-300/15  w-full lg:w-3/4  border border-white/20  mx-auto"} >
-          <div className={" mt-6 w-2/3 lg:w-1/3  h-1/8 lg:h-1/6 shadow-2xl/10  rounded-2xl mx-auto flex justify-center flex-col items-center border border-white/20"} >
-              <h1 className={" text-3xl lg:text-5xl text-center font-mono text-gray-200 "}>Live Exhibit</h1>
-              <p className={"text-xl text-center font-mono text-gray-200 "}>Made by Bilal Agrouane</p>
-          </div>
+          <div className={" grid  grid-cols-[1fr_auto_1fr] gap-2 mt-6 h-1/8 lg:h-1/6 "}>
+             <div className={"w-10 h-10"}>
 
-          <div className={" mt-6 w-10 h-10  shadow-2xl/10  rounded-2xl mx-auto flex justify-center flex-col items-center border border-white/20"} >
-          Yo
+             </div>
+
+              <div className={"w-full col-start-2  pl-4 pr-4 justify-self-center h-full shadow-2xl/10  rounded-2xl ml- flex justify-center flex-col items-center border border-white/20"} >
+                  <h1 className={" text-3xl lg:text-5xl text-center font-mono text-gray-200 "}>Live Exhibit</h1>
+                  <p className={"text-xl text-center font-mono text-gray-200 "}>Made by Bilal Agrouane</p>
+              </div>
+
+              <div className={"  col-start-3 justify-self-center self-center w-12 h-12  shadow-2xl/10  rounded-2xl  flex justify-center flex-col items-center border border-white/20"} >
+                  +
+              </div>
           </div>
           <MasonryGrid />
       </div>
