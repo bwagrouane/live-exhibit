@@ -1,5 +1,5 @@
 import {useState} from "react";
-import PopupBox from "./PopupBox.jsx";
+import ImgPopupBox from "./ImgPopupBox.jsx";
 import ImgDisplay from "./ImgDisplay.jsx";
 function MasonryGrid() {
 
@@ -27,7 +27,7 @@ function MasonryGrid() {
             <ImgDisplay activatePopup={activatePopup}/>
             <ImgDisplay activatePopup={activatePopup}/>
             <ImgDisplay activatePopup={activatePopup}/>
-            <PopupBox isOpen={isOpen} deactivatePopup={deactivatePopup} />
+            <ImgPopupBox isOpen={isOpen} deactivatePopup={deactivatePopup} />
 
         </div>
     )
