@@ -1,13 +1,16 @@
 
 import {useState} from "react";
 
-function uploadPopupbox({isOpen, deactivatePopup}) {
+function UploadPopupbox({isOpen, deactivatePopup}) {
+
+
+    const [fileLabel, setFileLabel] = useState("Click to Browse..");
 
     if (isOpen !== true) {
         return null;
     }
 
-    const [fileLabel, setFileLabel] = useState("Click to Browse..");
+
 
     const fileLabelChange = (e) => {
         setFileLabel(e.target.files[0].name);
@@ -41,4 +44,4 @@ return(
 
 }
 
-export default uploadPopupbox;
+export default UploadPopupbox;
