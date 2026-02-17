@@ -17,8 +17,8 @@ function App() {
     }
 
     return (
-      <div className={"backdrop-blur-md h-screen bg-pink-300/15  w-full lg:w-3/4  border border-white/20  mx-auto"} >
-          <div className={" grid  grid-cols-[1fr_auto_1fr] gap-2 mt-6 h-1/8 lg:h-1/6 "}>
+      <div className={"backdrop-blur-md min-h-screen bg-pink-300/15  w-full lg:w-3/4  border border-white/20  mx-auto"} >
+          <div className={" grid  grid-cols-[1fr_auto_1fr] gap-2 mt-6 min-h-28 "}>
              <div className={"w-10 h-10"}>
 
              </div>

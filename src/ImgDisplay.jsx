@@ -9,7 +9,7 @@ function imgDisplay({ activatePopup }){
 
 
     return(
-        <div onClick={ activatePopup  } className={"  cursor-pointer break-inside-avoid w-full h-1/6 bg-rose-950/30 mb-2 rounded-xl relative group"}>
+        <div onClick={ activatePopup  } className={"  cursor-pointer break-inside-avoid w-full h-30 bg-rose-950/30 mb-2 rounded-xl relative group"}>
             <InfoOverlay/>
         </div>
     )

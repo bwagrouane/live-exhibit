@@ -18,7 +18,7 @@ function MasonryGrid() {
    }
 
     return (
-        <div  className={" bg-pink-300/30 w-6/7 h-13/16 lg:h-3/4  columns-2 lg:columns-5 gap-1 mt-4 mx-auto"}>
+        <div  className={" bg-pink-300/30 w-6/7 min-h-160 lg:min-h-170  columns-2 lg:columns-5 gap-1 mt-4 mx-auto"}>
             <ImgDisplay activatePopup={activatePopup}/>
             <ImgDisplay activatePopup={activatePopup}/>
             <ImgDisplay activatePopup={activatePopup}/>
