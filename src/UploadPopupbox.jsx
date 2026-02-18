@@ -18,22 +18,41 @@ function UploadPopupbox({isOpen, deactivatePopup}) {
         setFileLabel(e.target.files[0].name);
     }
 
+
+
     const formSubmitHandler = (e) => {
         e.preventDefault();
 
 
         let file = e.target.elements.image.files[0];
-        // Upload file using standard upload
-        async function uploadImage(file) {
-            const { data, error } = await supabase.storage.from('Images').upload(`Images/${file.name}`, file);
-            if (error) {
-                setFileLabel("Upload failed, Try Again");
-            } else {
+
+        async function uploadImage() {
+
+            const { data:signedData, error: signedError } = await supabase.functions.invoke('ImageUpload', {
+                body: { filename: `${file.name}` }
+            })
+
+            if (signedError) {
+                setFileLabel("Upload Failed 1st Try Again");
+                return;
+            }
+
+            const { data, error } = await supabase
+                .storage
+                .from('images')
+                .uploadToSignedUrl(`${signedData.path}`, `${signedData.token}`, file);
+
+            if(error){
+                setFileLabel("Upload Failed Try Again");
+
+            }
+            else{
                 setFileLabel("Click to Browse..");
             }
+
         }
 
-        uploadImage(file);
+        uploadImage();
 
 
     }
