@@ -34,12 +34,13 @@ function UploadPopupbox({isOpen, deactivatePopup}) {
 
             if (signedError) {
                 setFileLabel("Upload Failed 1st Try Again");
+                console.log(signedError);
                 return;
             }
 
             const { data, error } = await supabase
                 .storage
-                .from('images')
+                .from('Images')
                 .uploadToSignedUrl(`${signedData.path}`, `${signedData.token}`, file);
 
             if(error){
