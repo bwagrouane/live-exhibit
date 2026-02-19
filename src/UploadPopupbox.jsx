@@ -29,8 +29,8 @@ function UploadPopupbox({isOpen, deactivatePopup}) {
         async function uploadImage() {
 
             const { data:signedData, error: signedError } = await supabase.functions.invoke('ImageUpload', {
-                body: { filename: `${file.name}` }
-            })
+                body: { filename: `${file.name}`, action: "storageUpload" }
+            });
 
             if (signedError) {
                 setFileLabel("Upload Failed 1st Try Again");
@@ -51,6 +51,21 @@ function UploadPopupbox({isOpen, deactivatePopup}) {
                 setFileLabel("Click to Browse..");
             }
 
+
+            const { data:imageJson } = supabase
+                .storage
+                .from('Images')
+                .getPublicUrl(`${file.name}`);
+
+            const publicUrl = imageJson.publicUrl;
+
+            const { data:tableData, error: tableError } = await supabase.functions.invoke('ImageUpload', {
+                body: { filename: `${file.name}`, action: "tableUpload", publicUrl: publicUrl }
+            });
+
+            if(tableError){
+                console.log(tableError);
+            }
         }
 
         uploadImage();
