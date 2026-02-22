@@ -10,6 +10,8 @@ function MasonryGrid() {
 
    const [selectedImg, setSelectedImg] = useState(null);
 
+   const [images, setImages] = useState([]);
+
    const activatePopup = () => {
        setIsOpen(true);
        setSelectedImg(null);
@@ -34,12 +36,14 @@ function MasonryGrid() {
             if(error){
                 console.log(error)
             }
-            else console.log(data);
+            else setImages(data);
 
 
        }
 
        fetchData();
+
+
    }, []);
 
 
@@ -51,15 +55,13 @@ function MasonryGrid() {
 
 
     return (
-        <div  className={" bg-pink-300/30 w-6/7 min-h-160 lg:min-h-170  columns-2 lg:columns-5 gap-1 mt-4 mx-auto"}>
-            <ImgDisplay activatePopup={activatePopup}/>
-            <ImgDisplay activatePopup={activatePopup}/>
-            <ImgDisplay activatePopup={activatePopup}/>
-            <ImgDisplay activatePopup={activatePopup}/>
-            <ImgDisplay activatePopup={activatePopup}/>
-            <ImgDisplay activatePopup={activatePopup}/>
-            <ImgDisplay activatePopup={activatePopup}/>
-            <ImgDisplay activatePopup={activatePopup}/>
+        <div  className={"  w-6/7 min-h-160 lg:min-h-170  columns-2 lg:columns-5 gap-1 mt-4 mx-auto"}>
+            <ImgDisplay activatePopup={activatePopup} image={images[0]}/>
+            <ImgDisplay activatePopup={activatePopup} image={images[1]}/>
+            <ImgDisplay activatePopup={activatePopup} image={images[2]}/>
+            <ImgDisplay activatePopup={activatePopup} image={images[3]}/>
+            <ImgDisplay activatePopup={activatePopup} image={images[4]}/>
+
             <ImgPopupBox isOpen={isOpen} deactivatePopup={deactivatePopup} />
 
         </div>
