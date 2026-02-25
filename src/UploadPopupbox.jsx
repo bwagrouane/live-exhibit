@@ -1,12 +1,23 @@
 
-
-import {useState} from "react";
+import * as nsfwjs from "nsfwjs";
+import {useEffect, useRef, useState} from "react";
 import supabase from "./supabaseclient.js";
 
 function UploadPopupbox({isOpen, deactivatePopup}) {
 
 
     const [fileLabel, setFileLabel] = useState("Click to Browse..");
+    const modelRef = useRef(null);
+    useEffect(() => {
+        async function loadnsfwModel() {
+            modelRef.current =  await nsfwjs.load();
+
+        }
+
+        loadnsfwModel();
+    },[])
+
+
 
     if (isOpen !== true) {
         return null;
@@ -20,13 +31,29 @@ function UploadPopupbox({isOpen, deactivatePopup}) {
 
 
 
+
     const formSubmitHandler = (e) => {
         e.preventDefault();
 
 
         let file = e.target.elements.image.files[0];
 
+
+
+
+
+
         async function uploadImage() {
+
+            const pixelfile = await createImageBitmap(file);
+            const predictions = await modelRef.current.classify(pixelfile);
+            console.log("Predictions: ", predictions);
+
+            if(predictions[0].className === "Hentai" || predictions[0].className === "Porn") {
+                setFileLabel("Inappropriate Image, Upload Failed");
+                return;
+            }
+
 
             const { data:signedData, error: signedError } = await supabase.functions.invoke('ImageUpload', {
                 body: { filename: `${file.name}`, action: "storageUpload" }
