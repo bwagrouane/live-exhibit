@@ -4,6 +4,16 @@ import {useEffect, useRef, useState} from "react";
 import supabase from "./supabaseclient.js";
 import Widget from "./Widget.jsx";
 
+/**
+ * UploadPopupbox Component
+ * Handles user image uploads with client-side ML moderation and secure server interactions.
+ * Uses nsfwjs to prevent inappropriate uploads, Turnstile for bot protection,
+ * and Supabase signed URLs to keep storage buckets secure.
+ *
+ * @param {Object} props - The component props.
+ * @param {boolean} props.isOpen - Controls the visibility of the modal.
+ * @param {Function} props.deactivatePopup - Callback to close the modal.
+ */
 function UploadPopupbox({isOpen, deactivatePopup}) {
 
 

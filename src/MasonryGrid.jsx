@@ -3,7 +3,12 @@ import ImgPopupBox from "./ImgPopupBox.jsx";
 import ImgDisplay from "./ImgDisplay.jsx";
 import supabase from "./supabaseclient.js";
 
-
+/**
+ * MasonryGrid Component
+ * Serves as the primary image feed, rendering a responsive CSS-based masonry layout.
+ * Handles asynchronous data fetching from Supabase on initial mount and manages
+ * the localized state for expanding individual images into a modal view.
+ */
 function MasonryGrid() {
 
    const [isOpen,setIsOpen] = useState(false);
