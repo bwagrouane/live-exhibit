@@ -59,7 +59,7 @@ function UploadPopupbox({isOpen, deactivatePopup}) {
 
             const pixelfile = await createImageBitmap(file);
             const predictions = await modelRef.current.classify(pixelfile);
-            console.log("Predictions: ", predictions);
+
 
             if(predictions[0].className === "Hentai" || predictions[0].className === "Porn") {
                 setFileLabel("Inappropriate Image, Upload Failed");
@@ -76,8 +76,8 @@ function UploadPopupbox({isOpen, deactivatePopup}) {
             });
 
             if (signedError) {
-                setFileLabel("Upload Failed 1st Try Again");
-                console.log(signedError);
+                setFileLabel("Upload Failed Try Again");
+
                 return;
             }
 
@@ -106,9 +106,7 @@ function UploadPopupbox({isOpen, deactivatePopup}) {
                 body: { filename: `${file.name}`, action: "tableUpload", publicUrl: publicUrl }
             });
 
-            if(tableError){
-                console.log(tableError);
-            }
+
         }
 
         uploadImage();
@@ -127,6 +125,7 @@ return(
 
             <button onClick={deactivatePopup} className={" cursor-pointer w-10 h-10 absolute top-4 right-4 text-pink-500  bg-pink-300/45 border border-white/20 rounded-full "}>X</button>
             <h1 className={"font-mono  mt-10 text-4xl text-gray-200 text-center"}>Upload your Art!</h1>
+            <p className ={"font-mono text-sm text-gray-200 text-center"}>(No NSFW Please)</p>
 
             <input type="file" onChange={fileLabelChange}  className={"hidden"} name={"image"} id="fileUpload"/>
             <label className={" flex flex-col justify-center items-center  text-2xl font-sans text-gray-400  text-center bg-slate-900/50 rounded-2xl border-dashed  mt-5 mb-2 mx-auto w-3/4 h-2/3 border-3 border-gray-700 "} htmlFor="fileUpload">
