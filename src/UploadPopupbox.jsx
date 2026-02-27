@@ -71,6 +71,8 @@ function UploadPopupbox({isOpen, deactivatePopup}) {
                 return;
             }
 
+            setFileLabel("Uploading...");
+
             const { data:signedData, error: signedError } = await supabase.functions.invoke('ImageUpload', {
                 body: { filename: `${file.name}`, action: "storageUpload", token: turnstileTokenRef.current }
             });
