@@ -2,7 +2,7 @@
 
 A full-stack, mobile-responsive web application where users can seamlessly upload, share, and view digital art. Built with a focus on secure cloud storage, automated content moderation, and a smooth user experience.
 ![Project Screenshot](screenshot.png) 
-Link to the Live Demo:
+Link to the Live Demo:https://live-exhibit.vercel.app/
 ## Tech Stack
 * **Frontend:** React, Tailwind CSS
 * **Backend & Database:** Supabase (PostgreSQL, Storage Buckets, Edge Functions)
