@@ -61,7 +61,7 @@ function MasonryGrid() {
 
 
     return (
-        <div  className={"  w-6/7 min-h-160 lg:min-h-170  columns-2 lg:columns-5 gap-1 mt-4 mx-auto"}>
+        <div  className={"  w-6/7 min-h-150 lg:min-h-160  columns-2 lg:columns-5 gap-1 mt-4 mx-auto"}>
             {images.map((image, i) => (
                 <ImgDisplay key={i} activatePopup={activatePopup} image={image} />
             ))}

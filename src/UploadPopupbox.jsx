@@ -121,12 +121,12 @@ function UploadPopupbox({isOpen, deactivatePopup}) {
 
 
 return(
-    <div  className={"  backdrop-blur-3xl  text-center fixed w-10/11 shadow-2xl/10 h-13/16 lg:h-5/6 bg-pink-300/40  border border-white/20 inset-0 m-auto rounded-4xl z-50 "}>
+    <div  className={"  backdrop-blur-3xl  text-center fixed w-10/11 shadow-2xl/10 min-h-13/16 lg:h-5/6 bg-pink-300/40  border border-white/20 inset-0 m-auto rounded-4xl z-50 "}>
 
         <form onSubmit={formSubmitHandler} className={" w-full h-full"}>
 
             <button onClick={deactivatePopup} className={" cursor-pointer w-10 h-10 absolute top-4 right-4 text-pink-500  bg-pink-300/45 border border-white/20 rounded-full "}>X</button>
-            <h1 className={"font-mono  mt-10 text-4xl text-gray-200 text-center"}>Upload your Art!</h1>
+            <h1 className={"font-mono  mt-6 text-4xl text-gray-200 text-center"}>Upload your Art!</h1>
             <p className ={"font-mono text-sm text-gray-200 text-center"}>(No NSFW Please)</p>
 
             <input type="file" onChange={fileLabelChange}  className={"hidden"} name={"image"} id="fileUpload"/>
@@ -135,7 +135,7 @@ return(
                 <h1 className={"font-mono   text-2xl text-gray-200 text-center"}>{fileLabel}</h1>
             </label>
             <Widget turnstileTokenRef={turnstileTokenRef}/>
-            <button className={"w-20 h-10  border shadow-2xl rounded-2xl border-white/20 bg-slate-900/50 "} type="submit">Submit</button>
+            <button className={"w-20  max-h-10 h-10  border shadow-2xl rounded-2xl border-white/20 bg-slate-900/50 "} type="submit">Submit</button>
 
         </form>
     </div>
